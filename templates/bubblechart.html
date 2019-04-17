@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Bubble Chart
+{% endblock %}
+
+{% block main %}
+    <div class = leftparent>
+        <canvas id="scatterplot"></canvas><br  />
+        <script src="/static/bubblechart.js"></script>
+
+        <div class = box1>
+            <button class="btn btn-primary" type="button" id = "createscatterplot"><b>Create Bubble Chart!</b></button>
+            <button class = "btn btn-primary" id="spdownload"><b>Download</b></button>
+        </div>
+
+        <div class = box1>
+            <h3>Display Settings</h3>
+            Colour Selector&ensp;<input class="jscolor" id = colourselectorbg value="#FFA600"><br  />
+            <p class = "opaquetext">*For advanced users, you can manipulate opacity of the colour by adding 2 more digits (hexadecimal) at the end of the colour hex code in the rgba format!
+            e.g. #F7464A80 is red(#F7464A) at 50%(80) opacity.<br  /> Visit <a href = "http://www.dtp-aus.com/hexadeci.htm">http://www.dtp-aus.com/hexadeci.htm</a>
+            for more decimal to hexadecimal values to manipulate the values!</p>
+
+            <label for = "backgroundcolour">Background Colour</label>
+            <input class = "adjust" type = "text" class="form-control" id="backgroundcolour" value = #FFFFFF></input><br  /><br  />
+
+
+            x axis Min &nbsp;<input type = "number" id = "xmin" value = 0></input>&ensp;
+            x axis Max &nbsp;<input type = "number" id = "xmax" value = 10></input>&ensp;
+            Step Size (x) &nbsp;<input type = "number" id = "xstep" value = 1></input><br  /><br  />
+            y axis Min &nbsp;<input type = "number" id = "ymin" value = 0></input>&ensp;
+            y axis Max &nbsp;<input type = "number" id = "ymax" value = 10></input>&ensp;
+            Step Size (y) &nbsp;<input type = "number" id = "ystep" value = 1></input>
+        </div>
+
+        <div class="form-group box1">
+            <label for="title"><h3>Titles</h3></label><br  />
+            <input autocomplete="off" autofocus class="form-control" id = "title" placeholder="Only the best titles for your datasets" type="text"><br  />
+            <input autocomplete="off" autofocus class="form-control" id = "xlabel" placeholder="x axis label" type="text">
+            <input autocomplete="off" autofocus class="form-control" id = "ylabel" placeholder="y axis label" type="text">
+            <input autocomplete="off" autofocus class="form-control" id = "bubblelabel" placeholder="name of each variable" type="text">
+        </div>
+
+        <div class = "form-group box1">
+            <label for="data"><h3>Data</h3></label><br  />
+            <textarea rows = "3" class="form-control" id = "data" placeholder="Data format: x1,y1,z1,x2,y2,z2... e.g. 1,3,4,6,4,7... refers to coordinate (1,3,4) and (6,4,7)
+z-index is represented by the size of the point!"></textarea>
+        </div>
+
+        <div class="form-group box1">
+            <label for="colour"><h3>Fill Colour</h3></label>
+            Color Selector <input class="jscolor" id = colourselector value="#FFA600">
+            <button class = btn type = "button" id = "addcolourbutton">Add Colour</button><br  />
+            <textarea class="form-control" rows="3" id="colour" placeholder = "#F7464A,#46BFBD,#FDB45C ..."></textarea>
+        </div>
+
+        <div class="form-group box1">
+            <label for="colour2"><h3>Border Colour</h3></label>
+            Color Selector <input class="jscolor" id = colourselector2 value="#FFA600">
+            <button class = btn type = "button" id = "addcolourbutton2">Add Colour</button>&ensp;
+            <textarea class="form-control" rows="3" id="colour2" placeholder = "#F7464A,#46BFBD,#FDB45C ..."></textarea>
+
+            Border Width
+            <input class ="form-control" type = text id = "borderwidth" placeholder = 1,2,3...></input><br  /><br  />
+        </div>
+{% endblock %}

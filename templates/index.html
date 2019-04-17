@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div class = "parent">
+    <div class = "grid-parent">
+        <H1 id = datax class ="serif w3-animate-opacity">How would you like to view your data?</H1>
+    </div>
+    <div class = "grid-parent">
+        <H6 id = datax2 class = "serif w3-animate-opacity">Hover for more information</H6>
+    </div>
+    <div class="grid-parent">
+        <div class="grid-item">
+            <a href="/piechart">
+                <div class="box" data-toggle="tooltip" data-placement="bottom" data-html= "true"
+                title="<h4>Pie Chart</h4>
+                        The most traditional and simplest way of presenting your data">
+                    <img id="piechartimage" src="/static/images/piechart.png">
+                </div>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="/doughnut">
+                <div class="box" data-toggle="tooltip" data-placement="bottom" data-html= "true"
+                title="<h4>Doughnut Chart</h4>
+                        Variation of the traditional pie chart which seeks to introduce fun in presenting data">
+                    <img id="doughnutimage" src="/static/images/doughnut.png">
+                </div>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="/polararea">
+                <div class="box" data-toggle="tooltip" data-placement="bottom" data-html= "true"
+                title="<h4>Polar Area Chart</h4>
+                        Similar to Pie Chart but presents the value of each element in equal proportions with different range">
+                    <img id="polarareaimage" src="/static/images/polararea.png">
+                </div>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a href="/radarchart">
+                <div class="box" data-toggle="tooltip" data-placement="bottom" data-html= "true"
+                title="<h4>Radar Chart</h4>
+                        Representing more than one dataset with the same variables for better comparison among datasets">
+                    <img id="radar" src="/static/images/radar.png">
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <div class = "grid-parent">
+        <div class="grid-item2">
+            <a href="/verticalbargraph">
+                <div class="box" data-toggle="tooltip" data-placement="left" data-html= "true"
+                title="<h4>Vertical Bar Graph</h4>
+                        A traditional and simple way of representing data">
+                    <img id="vbg" src="/static/images/vbg.png">
+                </div>
+            </a>
+        </div>
+        <div class="grid-item2">
+            <a href="/horizontalbargraph">
+                <div class="box" data-toggle="tooltip" data-placement="right" data-html= "true"
+                title="<h4>Horizontal Bar Graph</h4>
+                        A variation of the vertical bar graph">
+                    <img id="hbg" src="/static/images/hbg.png">
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <div class = "grid-parent">
+        <div class="grid-item2">
+            <a href="/linegraphcategory">
+                <div class="box" data-toggle="tooltip" data-placement="left" data-html= "true"
+                title="<h4>Line Graph (By Category)</h4>
+                        Explores the relationship between the various elements with their respective values">
+                    <img id="lgc" src="/static/images/lgc.png">
+                </div>
+            </a>
+        </div>
+        <div class="grid-item2">
+            <a href="/linegraphplotting">
+                <div class="box" data-toggle="tooltip" data-placement="right" data-html= "true"
+                title="<h4>Line Graph (By Plotting)</h4>
+                        Explores the relationship of the x and y coordinates">
+                    <img id="lgp" src="/static/images/lgp.png">
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <div class = "grid-parent">
+        <div class="grid-item2">
+            <a href="/scatterplot">
+                <div class="box" data-toggle="tooltip" data-placement="left" data-html= "true"
+                title="<h4>Scatterplot</h4>
+                        To draw conclusions from seemingly random x and y points">
+                    <img id="scatter" src="/static/images/scatter.png">
+                </div>
+            </a>
+        </div>
+        <div class="grid-item2">
+            <a href="/bubblechart">
+                <div class="box" data-toggle="tooltip" data-placement="right" data-html= "true"
+                title="<h4>Bubble Chart</h4>
+                        A modern variation of a scatterplot which explores the z-index!">
+                    <img id="bubble" src="/static/images/bubble.png">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    document.body.classList.add('js-loading');
+
+    window.addEventListener("load", showPage);
+
+    function showPage() {
+    document.body.classList.remove('js-loading');
+    }
+</script>
+
+{% endblock %}

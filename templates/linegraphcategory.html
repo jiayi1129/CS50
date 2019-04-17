@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Line Graph (By Category)
+{% endblock %}
+
+{% block main %}
+    <div class = leftparent>
+        <canvas id="radarchart"></canvas><br  />
+        <script src="/static/linegraphcategory.js"></script>
+
+        <div class = box1>
+            <button class="btn btn-primary" type="button" id = "createradarchart"><b>Create Line Graph!</b></button>
+            <button class = "btn btn-primary" id="radardownload"><b>Download</b></button>
+        </div>
+
+        <div class = box1>
+            <h3>Display Settings</h3>
+            Colour Selector&ensp;<input class="jscolor" id = colourselectorbg value="#FFA600"><br  />
+            <p class = "opaquetext">*For advanced users, you can manipulate opacity of the colour by adding 2 more digits (hexadecimal) at the end of the colour hex code in the rgba format!
+            e.g. #F7464A80 is red(#F7464A) at 50%(80) opacity.<br  /> Visit <a href = "http://www.dtp-aus.com/hexadeci.htm">http://www.dtp-aus.com/hexadeci.htm</a>
+            for more decimal to hexadecimal values to manipulate the values!</p>
+
+            <label for = "backgroundcolour">Background Colour</label>
+            <input class = "adjust" type = "text" class="form-control" id="backgroundcolour" value = #FFFFFF></input>
+
+            Min &nbsp;<input type = "number" id = "min" value = 0></input>&ensp;
+            Max &nbsp;<input type = "number" id = "max" value = 10></input>&ensp;
+            Step Size &nbsp;<input type = "number" id = "step" value = 1></input><br  />
+
+            <label for="title"><h3>Titles</h3></label><br  />
+            <input autocomplete="off" autofocus class="form-control" id = "title" placeholder="Only the best titles for your datasets" type="text"><br  />
+
+            <label for="variables"><h3>Variables</h3></label><br  />
+            <textarea rows = "3" class="form-control" id = "variables" placeholder= "Name, Age, Dorm..."></textarea>
+        </div>
+
+        <div class = box1>
+            Please select the number of datasets &ensp;<input type = "number" id = "numberinput"></input>&ensp;
+            <button class = "btn btn-primary" type = "button" id = "numberinputbutton">Get Datasets!</button><br  />
+            <span class = "opaquetext">NOTE: All dataset values reset upon the press of this button, so make sure to think properly beforehand!</span><br  />
+            <span class = "opaquetext">NOTE: Line Graph introduces Gradient Colours. If unwanted please set the same colour for both start and end.</span>
+            <span class = "opaquetext">NOTE: Set Fill colour to #FFFFFF00 if you do not want any fill!</span>
+        </div>
+
+        <div id = "form">
+        </div>
+    </div>
+
+{% endblock %}

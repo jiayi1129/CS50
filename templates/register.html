@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<span id = "dataxparent">
+    <H1 id = datax class = "serif w3-animate-opacity">Register, Log In, and Start Creating</H1>
+</span>
+<div class = "container boxcenter">
+    <form action="/register" method="post" id = "register">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" id = "username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+</div>
+    <script>
+
+    document.body.classList.add('js-loading');
+
+    window.addEventListener("load", showPage);
+
+    function showPage() {
+    document.body.classList.remove('js-loading');
+    }
+
+    var register = document.querySelector('form');
+    register.onsubmit = function(ev) {
+        ev.preventDefault();
+        $.get("/check", {username: $("#username").val()}, function(data){
+            if (data == false) {
+                alert('Username taken!');
+                register.preventDefault();
+            }
+            else {
+                register.submit();
+        }
+        });
+    };
+</script>
+{% endblock %}

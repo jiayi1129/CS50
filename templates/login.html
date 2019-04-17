@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<span id = "dataxparent">
+    <H1 id = datax class = "serif w3-animate-opacity">DataX Introduces you to more dynamic ways to present your data</H1>
+</span>
+<div class = "container boxcenter">
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+</div>
+
+<script>
+    document.body.classList.add('js-loading');
+
+    window.addEventListener("load", showPage);
+
+    function showPage() {
+    document.body.classList.remove('js-loading');
+    }
+</script>
+
+{% endblock %}
