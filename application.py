@@ -35,7 +35,7 @@ connection = sqlite3.connect("users.db")
 # cursor
 db = connection.cursor()
 
-@app.route("/", methods = ["GET", "POST"])
+@app.route("/", methods = ["GET"])
 @login_required
 def index():
     return render_template("index.html")
