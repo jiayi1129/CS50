@@ -29,7 +29,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("user_id") is None:
-            print("You need to log in first!", file=sys.stderr)
+            print(session.get("user_id"), file=sys.stderr)
             return redirect("/login")
         return f(*args, **kwargs)
     return decorated_function
