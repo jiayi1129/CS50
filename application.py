@@ -147,7 +147,7 @@ def login():
         print(session["user_id"], file=sys.stderr)
         
         # Change Log In status
-        sesssion['logged_in'] = True
+        session['logged_in'] = True
 
         # close the connection
         connection.close()
