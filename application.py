@@ -85,7 +85,6 @@ def radarchart():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
-    print(session["user_id"], file=sys.stderr)
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
