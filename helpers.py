@@ -1,5 +1,7 @@
 from flask import redirect, render_template, request, session
 from functools import wraps
+from __future__ import print_function # In python 2.7
+import sys
 
 
 def apology(message, code=400):
@@ -26,7 +28,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("user_id") is None:
-            print("You need to log in first!")
+            print("You need to log in first!", file=sys.stderr)
             return redirect("/login")
         return f(*args, **kwargs)
     return decorated_function
