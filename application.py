@@ -1,3 +1,6 @@
+from __future__ import print_function
+import sys
+
 from flask import Flask, flash, jsonify, redirect, render_template, request, session, url_for
 from flask_session import Session
 from tempfile import mkdtemp
