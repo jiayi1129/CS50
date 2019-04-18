@@ -32,9 +32,10 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         print(session.get("user_id"), file=sys.stderr)
-        if session.get("user_id") is None:
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
             return redirect("/login")
-        return f(*args, **kwargs)
     return decorated_function
 
 # Configure application
@@ -144,6 +145,9 @@ def login():
         session["user_id"] = rows[0][0]
         
         print(session["user_id"], file=sys.stderr)
+        
+        # Change Log In status
+        sesssion['logged_in'] = True
 
         # close the connection
         connection.close()
