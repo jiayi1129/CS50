@@ -15,6 +15,7 @@ Data X is a data visualization application that provides highly customizable too
 10. Bubble Chart
 
 Hosted on heroku
+
 Created with flask, python, bootstrap, chartjs, colorjs, html2canvas, w3schoolscss
 
 ## Usage
