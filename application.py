@@ -31,7 +31,6 @@ def login_required(f):
     """
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        print(session.get("user_id"), file=sys.stderr)
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
@@ -144,8 +143,6 @@ def login():
         # Remember which user has logged in
         session["user_id"] = rows[0][0]
         
-        print(session["user_id"], file=sys.stderr)
-        
         # Change Log In status
         session['logged_in'] = True
 
@@ -188,7 +185,6 @@ def register():
         # Ensure username does not exist in database already
         db.execute("SELECT username FROM users")
         usernames = db.fetchall()
-        print(usernames)
 
         for i in usernames:
             if i[0] == request.form.get("username"):
