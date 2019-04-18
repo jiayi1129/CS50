@@ -27,9 +27,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Remember Session
-session["user_id"]
-
 @app.route("/", methods = ["GET"])
 @login_required
 def index():
