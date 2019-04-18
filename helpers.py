@@ -1,7 +1,8 @@
+from __future__ import print_function
+import sys
+
 from flask import redirect, render_template, request, session
 from functools import wraps
-from __future__ import print_function # In python 2.7
-import sys
 
 
 def apology(message, code=400):
