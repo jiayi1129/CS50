@@ -27,7 +27,7 @@ Visit https://create-data.herokuapp.com/
 ```git clone https://github.com/jiayi1129/CS50.git``` to your local directory
 
 ### Step 2:
-navigate to that this folder in your terminal and type in ```heroku create``` 
+navigate to this folder in your terminal and type in ```heroku create``` 
 (assuming you have logged in to heroku already and have heroku installed)
 
 ### Step 3: 
