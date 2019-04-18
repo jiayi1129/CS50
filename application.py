@@ -27,57 +27,57 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-@app.route("/", methods = ["GET"])
+@app.route("/")
 @login_required
 def index():
     return render_template("index.html")
 
-@app.route("/piechart", methods = ["GET"])
+@app.route("/piechart")
 @login_required
 def piechart():
     return render_template("piechart.html")
 
-@app.route("/doughnut", methods = ["GET"])
+@app.route("/doughnut")
 @login_required
 def doughnut():
     return render_template("doughnut.html")
 
-@app.route("/polararea", methods = ["GET"])
+@app.route("/polararea")
 @login_required
 def polararea():
     return render_template("polararea.html")
 
-@app.route("/verticalbargraph", methods = ["GET"])
+@app.route("/verticalbargraph")
 @login_required
 def verticalbargraph():
     return render_template("verticalbargraph.html")
 
-@app.route("/horizontalbargraph", methods = ["GET"])
+@app.route("/horizontalbargraph")
 @login_required
 def horizontalbargraph():
     return render_template("horizontalbargraph.html")
 
-@app.route("/linegraphcategory", methods = ["GET"])
+@app.route("/linegraphcategory")
 @login_required
 def linegraphcategory():
     return render_template("linegraphcategory.html")
 
-@app.route("/linegraphplotting", methods = ["GET"])
+@app.route("/linegraphplotting")
 @login_required
 def linegraphplotting():
     return render_template("linegraphplotting.html")
 
-@app.route("/scatterplot", methods = ["GET"])
+@app.route("/scatterplot")
 @login_required
 def scatterplot():
     return render_template("scatterplot.html")
 
-@app.route("/bubblechart", methods = ["GET"])
+@app.route("/bubblechart")
 @login_required
 def bubblechart():
     return render_template("bubblechart.html")
 
-@app.route("/radarchart", methods = ["GET"])
+@app.route("/radarchart")
 @login_required
 def radarchart():
     return render_template("radarchart.html")
@@ -85,9 +85,7 @@ def radarchart():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
-
-    # Forget any user_id
-    session.clear()
+    print(session["user_id"], file=sys.stderr)
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
@@ -115,6 +113,8 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0][0]
+        
+        print(session["user_id"], file=sys.stderr)
 
         # close the connection
         connection.close()
